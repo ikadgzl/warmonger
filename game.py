@@ -30,3 +30,36 @@ class Game:
         self.orcs.print()
         self.dwarves.print()
         self.elves.print()
+
+    def handle_sales(self):
+        print('1. Weapons')
+        print('2. Armor\n')
+
+        sale_type = input('What do you want to sell? ')
+
+        print('\n1. Orcs')
+        print('2. Dwarves')
+        print('3. Elves\n')
+
+        to = input('To which faction? ')
+        amount = int(input('\nHow many armors do you want to sell? '))
+
+        if sale_type == '1':
+            if to == '1':
+                self.merchant.sell_weapons(self.orcs, amount)
+            elif to == '2':
+                self.merchant.sell_weapons(self.dwarves, amount)
+            elif to == '3':
+                self.merchant.sell_weapons(self.elves, amount)
+            else:
+                print('Wrong faction name!')
+
+        if sale_type == '2':
+            if to == '1':
+                self.merchant.sell_armors(self.orcs, amount)
+            elif to == '2':
+                self.merchant.sell_armors(self.dwarves, amount)
+            elif to == '3':
+                self.merchant.sell_armors(self.elves, amount)
+            else:
+                print('Wrong faction name!')
