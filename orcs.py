@@ -34,10 +34,14 @@ class Orcs(Faction):
                                     self.health_points)
 
     def purchase_weapons(self, purchase_amount: int) -> int:
-        pass
+        self.attack_points += purchase_amount * 2
+
+        return 20 * purchase_amount
 
     def purchase_armors(self, purchase_amount: int) -> int:
-        pass
+        self.health_points += purchase_amount * 3
+
+        return 1 * purchase_amount
 
     def print(self):
         print('--- Stop running, you\'ll only die tired! ---')
