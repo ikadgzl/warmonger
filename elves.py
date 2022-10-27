@@ -7,7 +7,27 @@ class Elves(Faction):
                          health_points, unit_regeneration_number, name)
 
     def perform_attack(self):
-        pass
+        orcs = self.first_enemy if self.first_enemy.name == 'Orcs' else self.second_enemy
+        dwarves = self.first_enemy if self.first_enemy.name == 'Dwarves' else self.second_enemy
+
+        if orcs.is_alive and dwarves.is_alive:
+            orcs.receive_attack(
+                self.name, self.attack_points * 0.6 * self.number_of_units)
+            dwarves.receive_attack(
+                self.name, self.attack_points * 0.4 * self.number_of_units * 1.5)
+            return
+
+        if orcs.is_alive:
+            print('yeah?')
+            print(self.__dict__)
+            orcs.receive_attack(
+                self.name, self.attack_points * self.number_of_units)
+
+        if dwarves.is_alive:
+            print(self.__dict__)
+            print('yeah?')
+            dwarves.receive_attack(
+                self.name, self.attack_points * self.number_of_units * 1.5)
 
     def receive_attack(self, attack_from: str, attack_points: float):
         pass
