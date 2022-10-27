@@ -55,7 +55,12 @@ class Merchant:
         return True
 
     def print(self):
-        pass
+        info = 'Weapon Points: \t {}\n' \
+            'Armor Points: \t {}\n' \
+            'Revenue: \t {}\n'.format(
+                self.weapon_points, self.armor_points, self.revenue)
+
+        print(info.expandtabs(30))
 
     def end_turn(self):
         self.weapon_points = self.base_weapon_points
