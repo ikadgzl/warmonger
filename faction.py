@@ -31,4 +31,16 @@ class Faction:
         pass
 
     def print(self):
-        pass
+        info = ''
+
+        for k, v in self.__dict__.items():
+            if k == 'first_enemy' or k == 'second_enemy':
+                continue
+
+            formatted_key = k.replace(
+                '_', ' ').capitalize() if k != 'is_alive' else 'Status'
+            formatted_value = v if k != 'is_alive' else 'Alive' if v else 'Defeated'
+
+            info += f'{formatted_key}: \t {formatted_value}\n'
+
+        print(info.expandtabs(30))
