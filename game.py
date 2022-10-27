@@ -77,3 +77,35 @@ class Game:
         self.day += 1
         print('Turn ended!')
         print('It is day {} in Warmonger!.\n'.format(self.day))
+
+    def handle_inputs(self) -> str:
+        print('1. See merchant')
+        print('2. See faction details')
+        print('3. Sell merchs')
+        print('4. End turn')
+        print('5. Quit game\n')
+
+        command = input('What do you want to do?')
+
+        return command
+
+    def start(self):
+        print(
+            '\n*** Welcome to the game of Warmonger, the sun rises as it is your 1st day here and sale starts. ***\n')
+
+        while True:
+            command = self.handle_inputs()
+            print()
+
+            if command == '1':
+                self.merchant.print()
+            elif command == '2':
+                self.see_faction_details()
+            elif command == '3':
+                self.handle_sales()
+            elif command == '4':
+                self.handle_turn()
+            elif command == '5':
+                break
+            else:
+                print('Give me a correct command, boy!')
