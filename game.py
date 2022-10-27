@@ -25,3 +25,8 @@ class Game:
 
         self.elves.assign_enemy(self.orcs)
         self.elves.assign_enemy(self.dwarves)
+
+    def see_faction_details(self):
+        self.orcs.print()
+        self.dwarves.print()
+        self.elves.print()
