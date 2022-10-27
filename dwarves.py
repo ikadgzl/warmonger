@@ -22,10 +22,14 @@ class Dwarves(Faction):
         self.number_of_units -= int(attack_points / self.health_points)
 
     def purchase_weapons(self, purchase_amount: int) -> int:
-        pass
+        self.attack_points += purchase_amount
+
+        return 10 * purchase_amount
 
     def purchase_armors(self, purchase_amount: int) -> int:
-        pass
+        self.health_points += purchase_amount * 2
+
+        return 3 * purchase_amount
 
     def print(self):
         print('--- Taste the power of our axes! ---')
