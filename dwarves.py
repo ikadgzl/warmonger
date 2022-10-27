@@ -19,7 +19,7 @@ class Dwarves(Faction):
             self.name, self.attack_points * self.number_of_units)
 
     def receive_attack(self, attack_from: str, attack_points: float):
-        pass
+        self.number_of_units -= int(attack_points / self.health_points)
 
     def purchase_weapons(self, purchase_amount: int) -> int:
         pass
