@@ -22,7 +22,16 @@ class Orcs(Faction):
             self.name, self.attack_points * self.number_of_units)
 
     def receive_attack(self, attack_from: str, attack_points: float):
-        pass
+        calculated_attack_points = attack_points
+
+        if attack_from == 'Elves':
+            calculated_attack_points *= 0.75
+
+        if attack_from == 'Dwarves':
+            calculated_attack_points *= 0.8
+
+        self.number_of_units -= int(calculated_attack_points /
+                                    self.health_points)
 
     def purchase_weapons(self, purchase_amount: int) -> int:
         pass
