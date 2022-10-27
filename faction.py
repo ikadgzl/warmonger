@@ -29,3 +29,6 @@ class Faction:
 
     def purchase_armors(self, purchase_amount: int) -> int:
         pass
+
+    def print(self):
+        pass
