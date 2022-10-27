@@ -7,7 +7,16 @@ class Dwarves(Faction):
                          health_points, unit_regeneration_number, name)
 
     def perform_attack(self):
-        pass
+        if self.first_enemy.is_alive and self.second_enemy.is_alive:
+            self.first_enemy.receive_attack(self.name,
+                                            self.attack_points * 0.5 * self.number_of_units)
+            self.second_enemy.receive_attack(self.name,
+                                             self.attack_points * 0.5 * self.number_of_units)
+            return
+
+        last_enemy = self.first_enemy if self.first_enemy.is_alive else self.second_enemy
+        last_enemy.receive_attack(
+            self.name, self.attack_points * self.number_of_units)
 
     def receive_attack(self, attack_from: str, attack_points: float):
         pass
