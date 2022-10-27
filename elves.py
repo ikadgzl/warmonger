@@ -42,10 +42,14 @@ class Elves(Faction):
                                     self.health_points)
 
     def purchase_weapons(self, purchase_amount: int) -> int:
-        pass
+        self.attack_points += purchase_amount * 2
+
+        return 15 * purchase_amount
 
     def purchase_armors(self, purchase_amount: int) -> int:
-        pass
+        self.health_points += purchase_amount * 4
+
+        return 5 * purchase_amount
 
     def print(self):
         print('--- You cannot reach our elegance. ---')
