@@ -45,3 +45,4 @@ class Orcs(Faction):
 
     def print(self):
         print('--- Stop running, you\'ll only die tired! ---')
+        super().print()

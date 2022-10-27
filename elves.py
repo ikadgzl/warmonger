@@ -53,3 +53,4 @@ class Elves(Faction):
 
     def print(self):
         print('--- You cannot reach our elegance. ---')
+        super().print()

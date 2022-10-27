@@ -33,3 +33,4 @@ class Dwarves(Faction):
 
     def print(self):
         print('--- Taste the power of our axes! ---')
+        super().print()
