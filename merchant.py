@@ -23,10 +23,36 @@ class Merchant:
             print('\nMerchant already have 3 factions\n')
 
     def sell_weapons(self, to: Faction, amount: int) -> int:
-        pass
+        if not to.is_alive:
+            print('\nThe faction you want to sell weapons is dead!\n')
+            return
+
+        if self.weapon_points < amount:
+            print('\nYou try to sell more weapons than you have in possession!\n')
+            return
+
+        gained_gold = to.purchase_weapons(amount)
+        self.weapon_points -= amount
+        self.revenue += gained_gold
+
+        print('\nWeapons sold!\n')
+        return True
 
     def sell_armors(self, to: Faction, amount: int) -> int:
-        pass
+        if not to.is_alive:
+            print('\nThe faction you want to sell armors is dead!\n')
+            return
+
+        if self.armor_points < amount:
+            print('\nYou try to sell more weapons than you have in possession!\n')
+            return
+
+        gained_gold = to.purchase_armors(amount)
+        self.armor_points -= amount
+        self.revenue += gained_gold
+
+        print('\nArmors sold!\n ')
+        return True
 
     def print(self):
         pass
