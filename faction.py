@@ -44,3 +44,15 @@ class Faction:
             info += f'{formatted_key}: \t {formatted_value}\n'
 
         print(info.expandtabs(30))
+
+    def end_turn(self):
+        if not self.is_alive:
+            self.number_of_units = 0
+            return
+
+        if self.number_of_units <= 0:
+            self.number_of_units = 0
+            self.is_alive = False
+            print('*' * 30)
+            print(f'** {self.name.upper()} has been defeated! **')
+            print('*' * 30, '\n')
