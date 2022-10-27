@@ -63,3 +63,17 @@ class Game:
                 self.merchant.sell_armors(self.elves, amount)
             else:
                 print('Wrong faction name!')
+
+    def handle_turn(self):
+        self.orcs.perform_attack() if self.orcs.is_alive else None
+        self.dwarves.perform_attack() if self.dwarves.is_alive else None
+        self.elves.perform_attack() if self.elves.is_alive else None
+
+        self.merchant.end_turn()
+        self.orcs.end_turn()
+        self.dwarves.end_turn()
+        self.elves.end_turn()
+
+        self.day += 1
+        print('Turn ended!')
+        print('It is day {} in Warmonger!.\n'.format(self.day))
